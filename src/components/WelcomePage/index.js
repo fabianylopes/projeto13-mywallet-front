@@ -1,7 +1,7 @@
 import Leave from '../../assets/leave.png';
 import Plus from '../../assets/plus.png';
 import Minus from '../../assets/minus.png';
-import { Top, Title, LogOut, Container, Footer, Transaction, Icon, Text} from './style';
+import { Top, Title, LogOut, Container, Footer, Transaction, Balance, H2, Total, Date, Title, Value, InOutButton, Text} from './style';
 
 
 function WelcomePage(){
@@ -11,16 +11,26 @@ function WelcomePage(){
                 <Title>Olá, Fulano</Title>
                 <img src={Leave}/>
             </Top>
-            <Container>Não há registros de entrada ou saída</Container>
-            <Footer>
+            <Container>
                 <Transaction>
+                    <Date>30/11</Date>
+                    <Title>Almoço mãe</Title>
+                    <Value>39,90</Value>
+                </Transaction>
+                <Balance>
+                    <H2>SALDO</H2>
+                    <Total>30/11</Total>
+                </Balance>
+            </Container>
+            <Footer>
+                <InOutButton>
                     <img src={Plus}/>
                     <Text>Nova entrada</Text>
-                </Transaction>
-                <Transaction>
+                </InOutButton>
+                <InOutButton>
                     <img src={Minus}/>
                     <Text>Nova saída</Text>
-                </Transaction>
+                </InOutButton>
             </Footer>
         </>
     );
