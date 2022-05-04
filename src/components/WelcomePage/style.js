@@ -27,6 +27,30 @@ const Transaction = styled.div`
     
 `
 
+const Date = styled.h2`
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #C6C6C6;
+`
+
+const Title = styled.h2`
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+`
+
+const Value = styled.h2`
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #C70000;
+`
+
 const InOutButton = styled.button`
     width: 155px;
     height: 114px;
@@ -48,6 +72,9 @@ export {
     Container, 
     Footer, 
     Transaction, 
+    Date,
+    Title,
+    Value,
     InOutButton,
     Text
 }
