@@ -1,4 +1,4 @@
-import { Title, Input, Button, Link } from '../Home/style';
+import { Title, Input, Button, StyledLink } from '../Home/style';
 
 function SignUp(){
     return (
@@ -9,7 +9,7 @@ function SignUp(){
             <Input placeholder="Senha"></Input>
             <Input placeholder="Confirme a senha"></Input>
             <Button>Cadastrar</Button>
-            <Link>Já tem uma conta? Entre agora!</Link>
+            <StyledLink to="/">Já tem uma conta? Entre agora!</StyledLink>
         </>
     );
 }

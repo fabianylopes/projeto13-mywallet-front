@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Title = styled.h1`
     font-family: 'Saira Stencil One', cursive;
@@ -12,7 +13,7 @@ const Button = styled.button`
 
 `
 
-const Link = styled.a`
+const StyledLink = styled(Link)`
 
 `
 
@@ -20,5 +21,5 @@ export {
     Title, 
     Input, 
     Button, 
-    Link 
+    StyledLink 
 }
