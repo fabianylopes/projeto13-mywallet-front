@@ -17,6 +17,7 @@ const Container = styled.div`
     width: 326px;
     height: 446px;
     border-radius: 5px;
+    padding: 23px 11px 10px 12px;                                                        
 `
 
 const Footer = styled.div`
@@ -25,6 +26,26 @@ const Footer = styled.div`
 
 const Transaction = styled.div`
     
+`
+
+const Balance = styled.div`
+    
+`
+
+const H2 = styled.h2`
+    font-family: 'Raleway';
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    color: #000;
+`
+
+const Total = styled.h3`
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    color: #03AC00;
 `
 
 const Date = styled.h2`
@@ -72,6 +93,9 @@ export {
     Container, 
     Footer, 
     Transaction, 
+    Balance,
+    H2,
+    Total,
     Date,
     Title,
     Value,
