@@ -24,6 +24,10 @@ const Footer = styled.div`
 `
 
 const Transaction = styled.div`
+    
+`
+
+const InOutButton = styled.button`
     width: 155px;
     height: 114px;
     border-radius: 5px;
@@ -44,5 +48,6 @@ export {
     Container, 
     Footer, 
     Transaction, 
+    InOutButton,
     Text
 }
