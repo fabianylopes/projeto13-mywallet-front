@@ -8,4 +8,5 @@ body {
   width: 375px;
   min-height: 100vh;
   background-color: #8C11BE;
+  padding: 16px 25px; 
 }
