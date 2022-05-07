@@ -5,8 +5,8 @@ const Top = styled.div`
     justify-content: space-between;
 `
 
-const Title = styled.h1`
-    color: #fff:
+const Header = styled.h1`
+    color: #fff;
     font-family: 'Raleway';
     font-weight: 700;
     font-size: 26px;
@@ -89,7 +89,7 @@ const Text = styled.h2`
 
 export { 
     Top, 
-    Title, 
+    Header, 
     Container, 
     Footer, 
     Transaction, 

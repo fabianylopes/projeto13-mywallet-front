@@ -11,9 +11,12 @@ const Input = styled.input`
 const Button = styled.button`
 
 `
+const Form = styled.form`
+`
 
 export { 
     Title, 
     Input, 
-    Button,  
+    Button,
+    Form  
 }

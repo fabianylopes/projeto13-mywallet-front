@@ -1,22 +1,28 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from 'react';
+import UserContext from "./contexts/UserContext";
 import SignIn from "./components/Home/SignIn";
 import SignUp from "./components/Home/SignUp";
-import Ins from "./components/InsAndOuts/Ins";
-import Outs from "./components/InsAndOuts/Outs";
-import WelcomePage from "./components/WelcomePage";
+import Entries from "./components/Transactions/Entries";
+import Outs from "./components/Transactions/Outs";
+import RecordsPage from './components/RecordsPage';
 
 function App(){
+
+    const [token, setToken] = useState();
+
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<SignIn/>}></Route>
-                <Route path="/signup" element={<SignUp/>}></Route>
-                <Route path="/welcomepage" element={<WelcomePage/>}></Route>
-                <Route path="/ins" element={<Ins/>}></Route>
-                <Route path="/outs" element={<Outs/>}></Route>
-            </Routes>
-        </BrowserRouter>
-        
+        <UserContext.Provider value={{ token, setToken }}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/sign-in" element={<SignIn/>}></Route>
+                    <Route path="/sign-up" element={<SignUp/>}></Route>
+                    <Route path="/records" element={<RecordsPage/>}></Route>
+                    <Route path="/entries" element={<Entries/>}></Route>
+                    <Route path="/outs" element={<Outs/>}></Route>
+                </Routes>
+            </BrowserRouter>
+        </UserContext.Provider>
     );
 }
 

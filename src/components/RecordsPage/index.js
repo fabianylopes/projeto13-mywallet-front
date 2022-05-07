@@ -1,15 +1,19 @@
+import { useNavigate } from 'react-router';
+
 import Leave from '../../assets/leave.png';
 import Plus from '../../assets/plus.png';
 import Minus from '../../assets/minus.png';
-import { Top, Title, LogOut, Container, Footer, Transaction, Balance, H2, Total, Date, Title, Value, InOutButton, Text} from './style';
+import { Top, Header, Container, Footer, Transaction, Balance, H2, Total, Date, Title, Value, InOutButton, Text} from './style';
 
 
-function WelcomePage(){
+function RecordsPage(){
+    const navigate = useNavigate();
+
     return (
         <>
             <Top>
-                <Title>Olá, Fulano</Title>
-                <img src={Leave}/>
+                <Header>Olá, Fulano</Header>
+                <img src={Leave} alt=""/>
             </Top>
             <Container>
                 <Transaction>
@@ -23,12 +27,12 @@ function WelcomePage(){
                 </Balance>
             </Container>
             <Footer>
-                <InOutButton>
-                    <img src={Plus}/>
+                <InOutButton onClick={() => navigate('/entries')}>
+                    <img src={Plus} alt=""/>
                     <Text>Nova entrada</Text>
                 </InOutButton>
-                <InOutButton>
-                    <img src={Minus}/>
+                <InOutButton onClick={() => navigate('/outs')}>
+                    <img src={Minus} alt=""/>
                     <Text>Nova saída</Text>
                 </InOutButton>
             </Footer>
@@ -36,4 +40,4 @@ function WelcomePage(){
     );
 }
 
-export default WelcomePage;
+export default RecordsPage;

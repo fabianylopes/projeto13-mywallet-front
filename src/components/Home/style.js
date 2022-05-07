@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Title = styled.h1`
+    color: #fff;
     font-family: 'Saira Stencil One', cursive;
     font-weight: 400;
     font-size: 32px;
@@ -32,6 +33,10 @@ const Button = styled.button`
     border-radius: 5px;
     font-size: 20px;
     font-weight: 700;
+    cursor: pointer;
+`
+
+const Form = styled.form`
 `
 
 const StyledLink = styled(Link)`
@@ -44,6 +49,7 @@ const StyledLink = styled(Link)`
 export { 
     Title, 
     Input, 
-    Button, 
+    Button,
+    Form, 
     StyledLink 
 }
