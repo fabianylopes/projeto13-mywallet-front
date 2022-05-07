@@ -6,13 +6,13 @@ import axios from 'axios';
 function SignUp(){
     const navigate = useNavigate();
 
-    const [userData, setUserData] = useState({})
+    const [formInfo, setFormInfo] = useState({})
 
 
     function handleSignUp(e){
         e.preventDefault();
 
-        const promise = axios.post('http://localhost:5000/sign-up', userData);
+        const promise = axios.post('http://localhost:5000/sign-up', formInfo);
 
         promise.then(() => navigate('/sign-in'));
         promise.catch((error) => console.log(error));
@@ -27,8 +27,8 @@ function SignUp(){
                 <Input 
                 type="text"
                 placeholder="Nome"
-                value={userData.name || ''} 
-                onChange={e => setUserData({...userData, name: e.target.value})} 
+                value={formInfo.name || ''} 
+                onChange={e => setFormInfo({...formInfo, name: e.target.value})} 
                 required
                 >
                 </Input>
@@ -36,8 +36,8 @@ function SignUp(){
                 <Input 
                 type="email" 
                 placeholder="E-mail" 
-                value={userData.email || ''} 
-                onChange={e => setUserData({...userData, email: e.target.value})} 
+                value={formInfo.email || ''} 
+                onChange={e => setFormInfo({...formInfo, email: e.target.value})} 
                 required
                 >
                 </Input>
@@ -45,8 +45,8 @@ function SignUp(){
                 <Input 
                 type="password"
                 placeholder="Senha"
-                value={userData.password || ''} 
-                onChange={e => setUserData({...userData, password: e.target.value})} 
+                value={formInfo.password || ''} 
+                onChange={e => setFormInfo({...formInfo, password: e.target.value})} 
                 required
                 >
                 </Input>

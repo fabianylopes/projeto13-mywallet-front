@@ -28,6 +28,7 @@ const Button = styled.button`
     border-radius: 5px;
     font-size: 20px;
     font-weight: 700;
+    cursor: pointer;
 `
 const Form = styled.form`
 `

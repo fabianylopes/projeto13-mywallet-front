@@ -8,12 +8,14 @@ import Outs from "./components/Transactions/Outs";
 import RecordsPage from './components/RecordsPage';
 
 function App(){
+    const initialToken = localStorage.getItem('token');
+    const initialUserInfo = localStorage.getItem('userInfo');
 
-
-    const [token, setToken] = useState();
+    const [token, setToken] = useState(initialToken);
+    const [userInfo, setUserInfo] = useState(JSON.parse(initialUserInfo));
 
     return (
-        <UserContext.Provider value={{ token, setToken }}>
+        <UserContext.Provider value={{ token, setToken, userInfo, setUserInfo }}>
             <BrowserRouter>
                 <Routes>
                     <Route path="/sign-in" element={<SignIn/>}></Route>

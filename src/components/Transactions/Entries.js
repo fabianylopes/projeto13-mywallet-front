@@ -17,6 +17,7 @@ function Entries(){
         promise.then(() => navigate('/records'));
         promise.catch((error) => console.log(error));
     }
+    console.log(newEntry)
 
     return (
         <>

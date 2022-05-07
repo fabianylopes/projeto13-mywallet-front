@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router';
+import { useContext } from 'react';
 
+import UserContext from '../../contexts/UserContext';
 import Leave from '../../assets/leave.png';
 import Plus from '../../assets/plus.png';
 import Minus from '../../assets/minus.png';
@@ -9,10 +11,12 @@ import { Top, Header, Container, Footer, Transaction, Balance, H2, Total, Date, 
 function RecordsPage(){
     const navigate = useNavigate();
 
+    const { userInfo } = useContext(UserContext);
+
     return (
         <>
             <Top>
-                <Header>Olá, Fulano</Header>
+                <Header>Olá, {userInfo.name}</Header>
                 <img src={Leave} alt=""/>
             </Top>
             <Container>

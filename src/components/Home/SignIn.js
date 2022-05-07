@@ -1,5 +1,5 @@
 import { Title, Input, Button, StyledLink, Form } from '../Home/style';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import UserContext from '../../contexts/UserContext';
 import axios from 'axios';
@@ -7,14 +7,20 @@ import axios from 'axios';
 function SignIn(){
     const navigate = useNavigate();
 
-    const { setToken } = useContext(UserContext);
+    const { token, setToken, setUserInfo } = useContext(UserContext);
 
-    const [login, setLogin] = useState({});
+    const [formInfo, setFormInfo] = useState({});
+
+    useEffect(() => {
+        if(token){
+          navigate('/records');
+        }
+    }, [token]); // eslint-disable-line react-hooks/exhaustive-deps
     
     function handleSignIn(e){
         e.preventDefault();
 
-        const promise = axios.post('http://localhost:5000/sign-in', login);
+        const promise = axios.post('http://localhost:5000/sign-in', formInfo);
 
         promise.then(handleSuccess);
         promise.catch((error) => console.log(error));
@@ -22,7 +28,10 @@ function SignIn(){
 
     function handleSuccess(response){
         setToken(response.data.token);
-        navigate('/records');
+        setUserInfo(response.data);
+   
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('userInfo', JSON.stringify(response.data));
     }
 
     return (
@@ -32,8 +41,8 @@ function SignIn(){
                 <Input 
                 type="email" 
                 placeholder="E-mail" 
-                value={login.email || ''} 
-                onChange={e => setLogin({...login, email: e.target.value})} 
+                value={formInfo.email || ''} 
+                onChange={e => setFormInfo({...formInfo, email: e.target.value})} 
                 required
                 >
                 </Input>
@@ -41,8 +50,8 @@ function SignIn(){
                 <Input 
                 type="password"
                 placeholder="Senha"
-                value={login.password || ''} 
-                onChange={e => setLogin({...login, password: e.target.value})} 
+                value={formInfo.password || ''} 
+                onChange={e => setFormInfo({...formInfo, password: e.target.value})} 
                 required
                 >
                 </Input>
