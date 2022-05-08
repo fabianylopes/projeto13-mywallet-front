@@ -1,7 +1,8 @@
-import { Container, Title, Input, Button, Form, StyledLink } from '../Home/style';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import axios from 'axios';
+
+import { Container, Title, Input, Button, Form, StyledLink } from '../Home/style';
+import api from '../../services/api';
 
 function SignUp(){
     const navigate = useNavigate();
@@ -12,11 +13,12 @@ function SignUp(){
     function handleSignUp(e){
         e.preventDefault();
 
-        const promise = axios.post('http://localhost:5000/sign-up', formInfo);
+        api.singnUp(formInfo).then(() => navigate('/sign-in')).catch(handleFailure);   
+    }
 
-        promise.then(() => navigate('/sign-in'));
-        promise.catch((error) => console.log(error));
-
+    function handleFailure(error){
+        alert(`${error.response.data.message}!\nPreencha os campos corretamente!`);
+        setFormInfo({});
     }
 
     return (

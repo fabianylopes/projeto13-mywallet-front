@@ -1,21 +1,20 @@
 import { useNavigate } from 'react-router';
-import { useState } from 'react';
-import axios from 'axios';
+import { useState, useContext } from 'react';
 
 import { Container, Title, Input, Button, Form } from './style';
+import UserContext from '../../contexts/UserContext';
+import api from '../../services/api';
 
 function Outs(){
     const navigate = useNavigate();
+    const { token } = useContext(UserContext);
 
-    const [newEntry, setNewEntry] = useState({});
+    const [newOut, setNewOut] = useState({});
 
     function handleOuts(e){
         e.preventDefault();
 
-        const promise = axios.post('http://localhost:5000/outs', newEntry);
-
-        promise.then(() => navigate('/records'));
-        promise.catch((error) => console.log(error));
+        api.addOut(newOut, token).then(() => navigate('/records')).catch((error) => console.log(error));
     }
 
     return (
@@ -25,8 +24,8 @@ function Outs(){
                 <Input 
                 type="text" 
                 placeholder="Valor" 
-                value={newEntry.value || ''} 
-                onChange={e => setNewEntry({...newEntry, value: e.target.value})} 
+                value={newOut.value || ''} 
+                onChange={e => setNewOut({...newOut, value: e.target.value})} 
                 required
                 >
                 </Input>
@@ -34,8 +33,8 @@ function Outs(){
                 <Input 
                 type="text"
                 placeholder="Descrição"
-                value={newEntry.description || ''} 
-                onChange={e => setNewEntry({...newEntry, description: e.target.value})} 
+                value={newOut.description || ''} 
+                onChange={e => setNewOut({...newOut, description: e.target.value})} 
                 required
                 >
                 </Input>

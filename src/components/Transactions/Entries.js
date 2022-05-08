@@ -1,21 +1,20 @@
 import { useNavigate } from 'react-router';
-import { useState } from 'react';
-import axios from 'axios';
+import { useState, useContext } from 'react';
 
 import { Container, Title, Input, Button, Form } from './style';
+import UserContext from '../../contexts/UserContext';
+import api from '../../services/api';
 
 function Entries(){
     const navigate = useNavigate();
+    const { token } = useContext(UserContext);
 
     const [newEntry, setNewEntry] = useState({});
 
     function handleEntry(e){
         e.preventDefault();
 
-        const promise = axios.post('http://localhost:5000/entries', newEntry);
-
-        promise.then(() => navigate('/records'));
-        promise.catch((error) => console.log(error));
+        api.addEntry(newEntry, token).then(() => navigate('/records')).catch((error) => console.log(error));
     }
 
     return (

@@ -1,8 +1,9 @@
-import { Container, Title, Input, Button, StyledLink, Form } from '../Home/style';
 import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router';
+
+import { Container, Title, Input, Button, StyledLink, Form } from '../Home/style';
 import UserContext from '../../contexts/UserContext';
-import axios from 'axios';
+import api from '../../services/api';
 
 function SignIn(){
     const navigate = useNavigate();
@@ -20,10 +21,7 @@ function SignIn(){
     function handleSignIn(e){
         e.preventDefault();
 
-        const promise = axios.post('http://localhost:5000/sign-in', formInfo);
-
-        promise.then(handleSuccess);
-        promise.catch((error) => console.log(error));
+        api.singnIn(formInfo).then(handleSuccess).catch(handleFailure)
     }
 
     function handleSuccess(response){
@@ -34,6 +32,11 @@ function SignIn(){
         localStorage.setItem('userInfo', JSON.stringify(response.data));
         navigate('/records');
     }
+
+    function handleFailure(error){
+        alert(`${error.response.data.message}!\nPreencha os campos corretamente!`);
+        setFormInfo({});
+      }
 
     return (
         <Container>
