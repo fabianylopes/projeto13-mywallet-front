@@ -1,4 +1,4 @@
-import { Title, Input, Button, StyledLink, Form } from '../Home/style';
+import { Container, Title, Input, Button, StyledLink, Form } from '../Home/style';
 import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import UserContext from '../../contexts/UserContext';
@@ -32,10 +32,11 @@ function SignIn(){
    
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('userInfo', JSON.stringify(response.data));
+        navigate('/records');
     }
 
     return (
-        <>
+        <Container>
             <Title>MyWallet</Title>
             <Form onSubmit={handleSignIn}>
                 <Input 
@@ -59,7 +60,7 @@ function SignIn(){
                 <Button type="submit">Entrar</Button>
             </Form>
             <StyledLink to="/sign-up">Primeira vez? Cadastre-se!</StyledLink>
-        </>
+        </Container>
     );
 }
 

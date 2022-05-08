@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import axios from 'axios';
 
-import { Title, Input, Button, Form } from './style';
+import { Container, Title, Input, Button, Form } from './style';
 
 function Outs(){
     const navigate = useNavigate();
@@ -19,7 +19,7 @@ function Outs(){
     }
 
     return (
-        <>
+        <Container>
             <Title>Nova saída</Title>
             <Form onSubmit={handleOuts}>
                 <Input 
@@ -42,7 +42,7 @@ function Outs(){
 
                 <Button type="submit">Salvar saída</Button>
             </Form>
-        </>
+        </Container>
     );
 }
 

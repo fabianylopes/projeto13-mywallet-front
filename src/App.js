@@ -5,7 +5,7 @@ import SignIn from "./components/Home/SignIn";
 import SignUp from "./components/Home/SignUp";
 import Entries from "./components/Transactions/Entries";
 import Outs from "./components/Transactions/Outs";
-import RecordsPage from './components/RecordsPage';
+import Records from './components/RecordsPage/Records';
 
 function App(){
     const initialToken = localStorage.getItem('token');
@@ -20,7 +20,7 @@ function App(){
                 <Routes>
                     <Route path="/sign-in" element={<SignIn/>}></Route>
                     <Route path="/sign-up" element={<SignUp/>}></Route>
-                    <Route path="/records" element={<RecordsPage/>}></Route>
+                    <Route path="/records" element={<Records/>}></Route>
                     <Route path="/entries" element={<Entries/>}></Route>
                     <Route path="/outs" element={<Outs/>}></Route>
                 </Routes>

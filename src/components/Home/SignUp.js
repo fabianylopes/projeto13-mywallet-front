@@ -1,4 +1,4 @@
-import { Title, Input, Button, Form, StyledLink } from '../Home/style';
+import { Container, Title, Input, Button, Form, StyledLink } from '../Home/style';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
@@ -20,7 +20,7 @@ function SignUp(){
     }
 
     return (
-        <>
+        <Container>
             <Title>MyWallet</Title>
 
             <Form onSubmit={handleSignUp}>
@@ -56,7 +56,7 @@ function SignUp(){
             </Form>
 
             <StyledLink to="/sign-in">Já tem uma conta? Entre agora!</StyledLink>
-        </>
+        </Container>
     );
 }
 

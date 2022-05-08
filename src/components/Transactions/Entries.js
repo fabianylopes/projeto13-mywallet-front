@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import axios from 'axios';
 
-import { Title, Input, Button, Form } from './style';
+import { Container, Title, Input, Button, Form } from './style';
 
 function Entries(){
     const navigate = useNavigate();
@@ -17,12 +17,10 @@ function Entries(){
         promise.then(() => navigate('/records'));
         promise.catch((error) => console.log(error));
     }
-    console.log(newEntry)
 
     return (
-        <>
+        <Container>
             <Title>Nova entrada</Title>
-
             <Form onSubmit={handleEntry}>
                 <Input 
                 type="text" 
@@ -44,7 +42,7 @@ function Entries(){
 
                 <Button type="submit">Salvar entrada</Button>
             </Form>
-        </>
+        </Container>
     );
 }
 

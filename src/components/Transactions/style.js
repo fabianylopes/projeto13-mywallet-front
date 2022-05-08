@@ -1,12 +1,23 @@
 import styled from "styled-components";
 
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    
+`
+
 const Title = styled.h1`
-    font-family: 'Saira Stencil One', cursive;
+    font-family: 'Raleway';
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 31px;
+    color: #fff;
 `
 
 const Input = styled.input`
     width: 326px;
     height: 58px;
+    border: none;
     border-radius: 5px;
     outline: 0;
     padding-left: 15px;
@@ -30,10 +41,17 @@ const Button = styled.button`
     font-weight: 700;
     cursor: pointer;
 `
-const Form = styled.form`
-`
 
+const Form = styled.form`
+    margin-top: 26px;
+    margin-bottom: 36px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+`
 export { 
+    Container,
     Title, 
     Input, 
     Button,
