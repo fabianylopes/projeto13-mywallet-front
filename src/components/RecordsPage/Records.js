@@ -11,13 +11,18 @@ import Minus from '../../assets/minus.png';
 function Records(){
     const navigate = useNavigate();
 
-    const { userName } = useContext(UserContext);
+    const { setToken, userName } = useContext(UserContext);
+
+    function leave(){
+        setToken('');
+        navigate('/sign-in');
+    }
 
     return (
         <Box>
             <Top>
                 <Header>Olá, {userName}</Header>
-                <Img>
+                <Img onClick={leave}>
                     <img src={Leave} alt=""/>
                 </Img>
             </Top>

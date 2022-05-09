@@ -11,23 +11,17 @@ function Container(){
     const [records, setRecords] = useState([]);
     const [balance, setBalance] = useState(0);
 
-    useEffect(() => getTransactions(), [token]); // eslint-disable-line react-hooks/exhaustive-deps
     
     function getTransactions(){
-        
-        api.getRecords(token).then(handleSuccess).catch((error) => console.log(error))
+        api.getRecords(token).then(handleSuccess).catch((error) => console.log(error));
     }
-
+    
     function handleSuccess(response){
         setRecords(response.data.records);
         setBalance(response.data.balance)
     }
-
-    console.log(records)
-    console.log(token)
-
     
-
+    useEffect(() => getTransactions(), [token]); // eslint-disable-line react-hooks/exhaustive-deps
 
     if(records.length === 0){
         return (
