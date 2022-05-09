@@ -9,6 +9,7 @@ import Outs from "./components/Transactions/Outs";
 import Records from './components/RecordsPage/Records';
 
 function App(){
+
     const initialToken = localStorage.getItem('token');
     const initialName = localStorage.getItem('name');
 
@@ -19,7 +20,7 @@ function App(){
         <UserContext.Provider value={{ token, setToken, userName, setUserName}}>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/sign-in" element={<SignIn/>}></Route>
+                    <Route path="/" element={<SignIn/>}></Route>
                     <Route path="/sign-up" element={<SignUp/>}></Route>
                     <Route path="/records" element={<Records/>}></Route>
                     <Route path="/transactions/entry" element={<Entries/>}></Route>

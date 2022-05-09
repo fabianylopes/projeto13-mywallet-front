@@ -20,7 +20,7 @@ function SignUp(){
         const userData = {...formInfo}
         delete userData.confirmPassword;
 
-        api.singnUp(userData).then(() => navigate('/sign-in')).catch(handleFailure);   
+        api.singnUp(userData).then(() => navigate('/')).catch(handleFailure);   
     }
 
     function handleFailure(error){
@@ -71,7 +71,7 @@ function SignUp(){
                 <Button type="submit">Cadastrar</Button>
             </Form>
 
-            <StyledLink to="/sign-in">Já tem uma conta? Entre agora!</StyledLink>
+            <StyledLink to="/">Já tem uma conta? Entre agora!</StyledLink>
         </Container>
     );
 }

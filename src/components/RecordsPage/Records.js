@@ -15,7 +15,7 @@ function Records(){
 
     function logOut(){
         localStorage.removeItem('token');
-        navigate('/sign-in');
+        navigate('/');
     }
 
     return (

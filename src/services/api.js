@@ -7,7 +7,7 @@ function getConfig(token){
 }
 
 function singnIn(body){
-    const promise = axios.post(`${BASE_URL}/sign-in`, body);
+    const promise = axios.post(`${BASE_URL}/`, body);
     
     return promise;
 }
