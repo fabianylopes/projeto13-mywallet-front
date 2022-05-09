@@ -83,7 +83,7 @@ const Total = styled.h3`
     font-weight: 400;
     font-size: 17px;
     line-height: 20px;
-    color: #03AC00;
+    color: ${({color}) => color >= 0 ? '#03AC00' : '#C70000'};
 `
 
 const Date = styled.h2`
@@ -107,7 +107,7 @@ const Value = styled.h2`
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
-    color: #C70000;
+    color: ${({color}) => color === 'entry' ? '#03AC00' : '#C70000'};
 `
 
 const InOutButton = styled.button`

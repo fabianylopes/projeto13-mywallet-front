@@ -10,9 +10,10 @@ import Records from './components/RecordsPage/Records';
 
 function App(){
     const initialToken = localStorage.getItem('token');
+    const initialName = localStorage.getItem('name');
 
     const [token, setToken] = useState(initialToken);
-    const [userName, setUserName] = useState();
+    const [userName, setUserName] = useState(initialName);
 
     return (
         <UserContext.Provider value={{ token, setToken, userName, setUserName}}>

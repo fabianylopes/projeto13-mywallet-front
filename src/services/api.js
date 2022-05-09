@@ -34,7 +34,7 @@ function addOut(body, token){
 
 function getRecords(token){
     const config = getConfig(token);
-    const promise = axios.post(`${BASE_URL}/records`, config);
+    const promise = axios.get(`${BASE_URL}/records`, config);
 
     return promise;
 }

@@ -25,15 +25,18 @@ function SignIn(){
     }
 
     function handleSuccess(response){
-        setToken(response.data);
-   
-        localStorage.setItem('token', response.data);
+        setToken(response.data.token);
+        setUserName(response.data.name);
+        
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('name', response.data.name);
     }
 
     function handleFailure(error){
         alert(`${error}!\nPreencha os campos corretamente!`);
         setFormInfo({});
       }
+
 
     return (
         <Container>

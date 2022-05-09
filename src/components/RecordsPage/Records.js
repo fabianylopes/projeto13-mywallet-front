@@ -2,21 +2,21 @@ import { useNavigate } from 'react-router';
 import { useContext } from 'react';
 
 import UserContext from '../../contexts/UserContext';
+import { Box, Top, Header, Img, Footer, InOutButton, Text} from './style';
+import Container from './Container';
 import Leave from '../../assets/leave.png';
 import Plus from '../../assets/plus.png';
 import Minus from '../../assets/minus.png';
-import { Box, Top, Header, Img, Footer, InOutButton, Text} from './style';
-import Container from './Container';
 
 function Records(){
     const navigate = useNavigate();
 
-    //const { userInfo } = useContext(UserContext);
+    const { userName } = useContext(UserContext);
 
     return (
         <Box>
             <Top>
-                <Header>Olá, </Header>
+                <Header>Olá, {userName}</Header>
                 <Img>
                     <img src={Leave} alt=""/>
                 </Img>

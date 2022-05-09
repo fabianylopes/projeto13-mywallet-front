@@ -22,7 +22,7 @@ function Outs(){
             <Title>Nova saída</Title>
             <Form onSubmit={handleOuts}>
                 <Input 
-                type="text" 
+                type="number" 
                 placeholder="Valor" 
                 value={newOut.value || ''} 
                 onChange={e => setNewOut({...newOut, value: e.target.value})} 
