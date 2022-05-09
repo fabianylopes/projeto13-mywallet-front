@@ -13,7 +13,7 @@ function Records(){
 
     const { userName } = useContext(UserContext);
 
-    function leave(){
+    function logOut(){
         localStorage.removeItem('token');
         navigate('/sign-in');
     }
@@ -22,7 +22,7 @@ function Records(){
         <Box>
             <Top>
                 <Header>Olá, {userName}</Header>
-                <Img onClick={leave}>
+                <Img onClick={logOut}>
                     <img src={Leave} alt=""/>
                 </Img>
             </Top>

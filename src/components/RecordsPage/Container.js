@@ -17,19 +17,8 @@ function Container(){
     }
     
     function handleSuccess(response){
-        setRecords(response.data);
-
-        /* let sum = 0;
-
-        records.forEach((r) => {
-            if(r.type === 'entry'){
-                balance += parseInt(r.value);
-            }else if(r.type === 'out'){
-                balance -= parseInt(r.value);
-            }
-        });
-
-        setBalance(sum); */
+        setRecords(response.data.records);
+        setBalance(response.data.sum);
     }
     
     useEffect(() => getTransactions(), [token]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -44,24 +33,23 @@ function Container(){
         <Transactions>
             <Teste>
 
-            {records.map((a, i) => {
-                return (
-                    <Transaction key={i}>
-                        <Description>
-                            <Date>{a.date}</Date>
-                            <Title>{a.description}</Title>
-                        </Description>
-                        <Value color={a.type}>{a.value}</Value>
-                    </Transaction>                   
-                )
-            })}
+                {records.map((a, i) => {
+                    return (
+                        <Transaction key={i}>
+                            <Description>
+                                <Date>{a.date}</Date>
+                                <Title>{a.description}</Title>
+                            </Description>
+                            <Value color={a.type}>{a.value}</Value>
+                        </Transaction>                   
+                    )
+                })}
 
+            </Teste>
             <Balance>
                 <H2>SALDO</H2>
                 <Total color={balance}>{(balance).toFixed(2)}</Total>
             </Balance>
-
-            </Teste>
         </Transactions>
     );
 }
