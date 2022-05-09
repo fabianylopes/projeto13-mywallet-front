@@ -8,7 +8,7 @@ import api from '../../services/api';
 function SignIn(){
     const navigate = useNavigate();
 
-    const { token, setToken, setUserInfo } = useContext(UserContext);
+    const { token, setToken, setUserName } = useContext(UserContext);
 
     const [formInfo, setFormInfo] = useState({});
 
@@ -25,16 +25,13 @@ function SignIn(){
     }
 
     function handleSuccess(response){
-        setToken(response.data.token);
-        setUserInfo(response.data);
+        setToken(response.data);
    
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('userInfo', JSON.stringify(response.data));
-        navigate('/records');
+        localStorage.setItem('token', response.data);
     }
 
     function handleFailure(error){
-        alert(`${error.response.data.message}!\nPreencha os campos corretamente!`);
+        alert(`${error}!\nPreencha os campos corretamente!`);
         setFormInfo({});
       }
 

@@ -20,14 +20,14 @@ function singnUp(body){
 
 function addEntry(body, token){
     const config = getConfig(token);
-    const promise = axios.post(`${BASE_URL}/entries`, body, config);
+    const promise = axios.post(`${BASE_URL}/transactions`, body, config);
     
     return promise;
 }
 
 function addOut(body, token){
     const config = getConfig(token);
-    const promise = axios.post(`${BASE_URL}/outs`, body, config);
+    const promise = axios.post(`${BASE_URL}/transactions`, body, config);
     
     return promise;
 }

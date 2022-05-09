@@ -9,15 +9,22 @@ function SignUp(){
 
     const [formInfo, setFormInfo] = useState({})
 
-
     function handleSignUp(e){
         e.preventDefault();
 
-        api.singnUp(formInfo).then(() => navigate('/sign-in')).catch(handleFailure);   
+        if(formInfo.password !== formInfo.confirmPassword){
+            alert('As senhas devem ser iguais');
+            return;
+        }
+
+        const userData = {...formInfo}
+        delete userData.confirmPassword;
+
+        api.singnUp(userData).then(() => navigate('/sign-in')).catch(handleFailure);   
     }
 
     function handleFailure(error){
-        alert(`${error.response.data.message}!\nPreencha os campos corretamente!`);
+        alert(`${error}!\nPreencha os campos corretamente!`);
         setFormInfo({});
     }
 
@@ -53,7 +60,14 @@ function SignUp(){
                 >
                 </Input>
 
-                {/* <Input placeholder="Confirme a senha"></Input> */}
+                <Input 
+                type="password"
+                placeholder="Confirme a senha"
+                value={formInfo.confirmPassword || ''} 
+                onChange={e => setFormInfo({...formInfo, confirmPassword: e.target.value})} 
+                required
+                >
+                </Input>
                 <Button type="submit">Cadastrar</Button>
             </Form>
 

@@ -11,12 +11,12 @@ import Container from './Container';
 function Records(){
     const navigate = useNavigate();
 
-    const { userInfo } = useContext(UserContext);
+    //const { userInfo } = useContext(UserContext);
 
     return (
         <Box>
             <Top>
-                <Header>Olá, {userInfo.name}</Header>
+                <Header>Olá, </Header>
                 <Img>
                     <img src={Leave} alt=""/>
                 </Img>
@@ -25,13 +25,13 @@ function Records(){
             <Container/>
 
             <Footer>
-                <InOutButton onClick={() => navigate('/entries')}>
+                <InOutButton onClick={() => navigate('/transactions/entry')}>
                     <div>
                         <img src={Plus} alt=""/>
                     </div>
                     <Text>Nova <br/>entrada</Text>
                 </InOutButton>
-                <InOutButton onClick={() => navigate('/outs')}>
+                <InOutButton onClick={() => navigate('/transactions/out')}>
                     <div>
                         <img src={Minus} alt=""/>
                     </div>

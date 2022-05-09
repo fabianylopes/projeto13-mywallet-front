@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from 'react';
+
 import UserContext from "./contexts/UserContext";
 import SignIn from "./components/Home/SignIn";
 import SignUp from "./components/Home/SignUp";
@@ -9,20 +10,19 @@ import Records from './components/RecordsPage/Records';
 
 function App(){
     const initialToken = localStorage.getItem('token');
-    const initialUserInfo = localStorage.getItem('userInfo');
 
     const [token, setToken] = useState(initialToken);
-    const [userInfo, setUserInfo] = useState(JSON.parse(initialUserInfo));
+    const [userName, setUserName] = useState();
 
     return (
-        <UserContext.Provider value={{ token, setToken, userInfo, setUserInfo }}>
+        <UserContext.Provider value={{ token, setToken, userName, setUserName}}>
             <BrowserRouter>
                 <Routes>
                     <Route path="/sign-in" element={<SignIn/>}></Route>
                     <Route path="/sign-up" element={<SignUp/>}></Route>
                     <Route path="/records" element={<Records/>}></Route>
-                    <Route path="/entries" element={<Entries/>}></Route>
-                    <Route path="/outs" element={<Outs/>}></Route>
+                    <Route path="/transactions/entry" element={<Entries/>}></Route>
+                    <Route path="/transactions/out" element={<Outs/>}></Route>
                 </Routes>
             </BrowserRouter>
         </UserContext.Provider>

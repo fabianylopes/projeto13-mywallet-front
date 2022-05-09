@@ -1,7 +1,7 @@
 import { render } from 'react-dom';
-import App from './App';
 
 import './css/reset.css';
 import './css/style.css';
+import App from './App';
 
 render(<App/>, document.querySelector('.root'));

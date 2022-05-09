@@ -9,7 +9,7 @@ function Outs(){
     const navigate = useNavigate();
     const { token } = useContext(UserContext);
 
-    const [newOut, setNewOut] = useState({});
+    const [newOut, setNewOut] = useState({type: 'out'});
 
     function handleOuts(e){
         e.preventDefault();

@@ -9,7 +9,7 @@ function Entries(){
     const navigate = useNavigate();
     const { token } = useContext(UserContext);
 
-    const [newEntry, setNewEntry] = useState({});
+    const [newEntry, setNewEntry] = useState({type: 'entry'});
 
     function handleEntry(e){
         e.preventDefault();
@@ -22,7 +22,7 @@ function Entries(){
             <Title>Nova entrada</Title>
             <Form onSubmit={handleEntry}>
                 <Input 
-                type="text" 
+                type="number" 
                 placeholder="Valor" 
                 value={newEntry.value || ''} 
                 onChange={e => setNewEntry({...newEntry, value: e.target.value})} 
