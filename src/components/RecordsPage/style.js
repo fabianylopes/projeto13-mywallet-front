@@ -35,6 +35,8 @@ const Transactions = styled.div`
     background-color: #fff;   
     color: #868686;
 
+    background-color: lightblue;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -49,6 +51,8 @@ const Footer = styled.div`
 `
 
 const Transaction = styled.div`
+    background-color: beige;
+
     display: flex;
     justify-content: space-between;
 `
@@ -66,6 +70,8 @@ const Description = styled.div`
 `
 
 const Balance = styled.div`
+
+    background-color: lightcoral;
     display: flex;
     justify-content: space-between;
 `
@@ -134,7 +140,14 @@ const Text = styled.h2`
     text-align: start;
 `
 
+const Teste = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+`
+
 export { 
+    Teste,
     Box,
     Top, 
     Header, 

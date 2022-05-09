@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 
-import { Transactions, Transaction, Description, Balance, H2, Total, Date, Title, Value } from './style';
+import { Teste, Transactions, Transaction, Description, Balance, H2, Total, Date, Title, Value } from './style';
 import UserContext from '../../contexts/UserContext';
 import api from '../../services/api';
 
@@ -17,8 +17,19 @@ function Container(){
     }
     
     function handleSuccess(response){
-        setRecords(response.data.records);
-        setBalance(response.data.balance)
+        setRecords(response.data);
+
+        /* let sum = 0;
+
+        records.forEach((r) => {
+            if(r.type === 'entry'){
+                balance += parseInt(r.value);
+            }else if(r.type === 'out'){
+                balance -= parseInt(r.value);
+            }
+        });
+
+        setBalance(sum); */
     }
     
     useEffect(() => getTransactions(), [token]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -31,6 +42,7 @@ function Container(){
 
     return (
         <Transactions>
+            <Teste>
 
             {records.map((a, i) => {
                 return (
@@ -46,9 +58,10 @@ function Container(){
 
             <Balance>
                 <H2>SALDO</H2>
-                <Total color={balance}>{balance}</Total>
+                <Total color={balance}>{(balance).toFixed(2)}</Total>
             </Balance>
 
+            </Teste>
         </Transactions>
     );
 }

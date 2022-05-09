@@ -11,10 +11,10 @@ import Minus from '../../assets/minus.png';
 function Records(){
     const navigate = useNavigate();
 
-    const { setToken, userName } = useContext(UserContext);
+    const { userName } = useContext(UserContext);
 
     function leave(){
-        setToken('');
+        localStorage.removeItem('token');
         navigate('/sign-in');
     }
 
